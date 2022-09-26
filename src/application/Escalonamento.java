@@ -79,7 +79,7 @@ public class Escalonamento {
 	}
 
 	/**
-	 * Imprimir cada posicao da lista de processos
+	 * Imprime cada posicao da lista de processos
 	 */
 	private static void printEscalonamento() {
 		System.out.println("Quantum: " + quantum);		
