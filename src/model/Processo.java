@@ -1,6 +1,6 @@
 package model;
 
-import application.Escalonamento;
+import utilities.Random;
 
 public class Processo {
 
@@ -38,17 +38,15 @@ public class Processo {
 		if (fistProcesso == 0) {			
 			return 0;
 		}		
-		return Escalonamento.returnRandomValue(1, 30);
+		return Random.returnIntValue(1, 30);
 	}
 
 	/**
 	 * Retorna o tempo estimado de execução de cada processo
 	 */
 	public static int returnBurstTime() {
-		return Escalonamento.returnRandomValue(1, 35);
+		return Random.returnIntValue(1, 35);
 	}
-
-
 	
 	public String getPid() {
 		return pid;
@@ -71,7 +69,12 @@ public class Processo {
 	}
 
 	public void setBurstTime(Integer burstTime) {
-		this.burstTime = burstTime;
+		if(burstTime < 0) {
+			this.burstTime = 0;
+		} else {
+			this.burstTime = burstTime;
+		}
+		
 	}
 
 }
